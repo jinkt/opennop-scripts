@@ -1,0 +1,13 @@
+<services>
+ <service name="download_url"><param name="path">viewvc/opennop/packages/opennop.dsc</param><param name="host">opennop.svn.sourceforge.net</param></service>
+ <service name="download_url"><param name="path">viewvc/opennop/packages/debian.rules</param><param name="host">opennop.svn.sourceforge.net</param></service>
+ <service name="download_url"><param name="path">viewvc/opennop/packages/debian.control</param><param name="host">opennop.svn.sourceforge.net</param></service>
+ <service name="download_url"><param name="path">viewvc/opennop/packages/debian.changelog</param><param name="host">opennop.svn.sourceforge.net</param></service>
+ <service name="download_url"><param name="path">viewvc/opennop/packages/debian.dirs</param><param name="host">opennop.svn.sourceforge.net</param></service>
+ <service name="download_url"><param name="path">viewvc/opennop/packages/opennop.spec</param><param name="host">opennop.svn.sourceforge.net</param></service>
+ <service name="download_url"><param name="path">viewvc/opennop/scripts/opennop</param><param name="host">opennop.svn.sourceforge.net</param><param name="filename">debian.opennop.init</param></service>
+ <service name="download_url"><param name="path">viewvc/opennop/scripts/opennop</param><param name="host">opennop.svn.sourceforge.net</param></service>
+ <service name="download_url"><param name="path">/viewvc/opennop/module/trunk/?view=tar</param><param name="protocol">http</param><param name="host">opennop.svn.sourceforge.net</param><param name="filename">debian.module.src</param></service>
+ <service name="download_url"><param name="path">/viewvc/opennop/module/trunk/?view=tar</param><param name="protocol">http</param><param name="host">opennop.svn.sourceforge.net</param><param name="filename">module.src</param></service>
+ <service name="download_url"><param name="path">/viewvc/opennop/daemon/trunk/?view=tar</param><param name="protocol">http</param><param name="host">opennop.svn.sourceforge.net</param><param name="filename">daemon.tar.gz</param></service>
+</services>
