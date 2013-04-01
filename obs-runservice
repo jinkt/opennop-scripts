@@ -1,0 +1,65 @@
+#!/bin/bash                                           
+#                                                     
+# An example hook script that is called after a successful
+# commit is made.  If the commit is to the master branch  
+# then it triggers the OBS project service to run.        
+#                                                         
+# To enable this hook, rename this file to "obs-runservice".
+#                                                           
+# Examples:                                                 
+# http://en.opensuse.org/openSUSE:Build_Service_Curl        
+# https://build.opensuse.org/apidocs/index#0                
+
+export APISERVER=api.opensuse.org
+
+usage()
+{      
+cat << EOF
+usage: $0 options
+
+This script triggers the source service of an OBS package to run.
+
+OPTIONS:
+        -h              Shows this message
+        -p              OBS project path  
+        -g              The package to run the service for
+        -u              Username that has access to the OBS package
+        -d              Password of the user who has access to the package
+EOF
+}
+
+while getopts "helpproject:g:u:d:" OPTION
+do
+        case $OPTION
+                in
+                        h)
+                                usage
+                                exit 1
+                                ;;
+                        p)
+                                PROJECT=$OPTARG
+                                ;;
+                        g)
+                                PACKAGE=$OPTARG
+                                ;;
+                        u)
+                                USERNAME=$OPTARG
+                                ;;
+                        d)
+                                PASSWORD=$OPTARG
+                                ;;
+                        ?)
+                                usage
+                                exit
+                                ;;
+        esac
+done
+
+if [ -z $PROJECT ] || [ -z $PACKAGE ] || [ -z $USERNAME ] || [ -z $PASSWORD ]
+then
+        usage
+        exit 1
+fi
+
+curl -u $USERNAME:$PASSWORD -X POST -H "Content-Length:0" "https://$APISERVER/source/$PROJECT/$PACK
+AGE?cmd=runservice"
